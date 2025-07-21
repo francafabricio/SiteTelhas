@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
             heroImages[currentHeroIndex].classList.remove('active'); // Esconde a imagem atual
             currentHeroIndex = (currentHeroIndex + 1) % heroImages.length; // Move para a próxima
             heroImages[currentHeroIndex].classList.add('active'); // Mostra a nova imagem
-        }, 5000); // Muda a cada 5 segundos
+        }, 3000); // Muda a cada 5 segundos
     }
 
     // 3.2: Carrossel de Imagens da Seção Galeria (Slider)
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setInterval(() => {
             currentGalleryIndex = (currentGalleryIndex + 1) % galleryItems.length; // Move para o próximo slide
             galleryTrack.style.transform = `translateX(-${currentGalleryIndex * 100}%)`;
-        }, 6000); // Muda a cada 6 segundos
+        }, 3000); // Muda a cada 6 segundos
     }
 
 
