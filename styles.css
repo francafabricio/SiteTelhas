@@ -64,16 +64,21 @@ body {
         align-items: center;
     }
 
-.logo h1 {
-    font-size: 24px;
-    font-weight: 800;
-    margin-bottom: 2px;
+.logo {
+    display: flex;
+    align-items: center;
 }
 
-.logo span {
-    font-size: 12px;
-    opacity: 0.9;
-}
+    .logo h1 {
+        font-size: 24px;
+        font-weight: 800;
+        margin-bottom: 2px;
+    }
+
+    .logo span {
+        font-size: 12px;
+        opacity: 0.9;
+    }
 
 .btn-whatsapp-header {
     background: #25D366;
@@ -99,7 +104,7 @@ body {
     background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
     color: white;
     overflow: hidden;
-    padding: 80px 0;
+    padding: 60px 0;
 }
 
 .hero-background {
@@ -152,7 +157,6 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 15px;
-    margin-bottom: 40px;
 }
 
 .benefit-item {
@@ -184,6 +188,9 @@ body {
     border-radius: 20px;
     box-shadow: 0 20px 60px rgba(0,0,0,0.3);
     position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     opacity: 0;
     transition: opacity 1s ease-in-out;
 }
@@ -407,36 +414,21 @@ body {
         font-size: 16px;
     }
 
-/* Benefits Section - Automatic Carousel */
+/* Benefits Section - Static Grid */
 .benefits {
     background: white;
 }
 
 .benefits-carousel-container {
     position: relative;
-    overflow: hidden;
-    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
 .benefits-carousel-track {
-    display: flex;
+    display: grid;
+    /* Cria colunas responsivas: se ajusta automaticamente ao tamanho da tela */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
-    animation: scroll 40s linear infinite;
-}
-
-.benefits-carousel-container:hover .benefits-carousel-track {
-    animation-play-state: paused;
-}
-
-@keyframes scroll {
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        transform: translateX(-50%);
-    }
+    justify-content: center;
 }
 
 .benefit-card {
@@ -445,7 +437,7 @@ body {
     border-radius: 15px;
     transition: all 0.3s ease;
     border: 1px solid #e5e7eb;
-    flex: 0 0 350px;
+    /* A propriedade flex foi removida pois agora usamos grid */
 }
 
     .benefit-card:hover {
@@ -506,8 +498,8 @@ body {
     .video-item-insta iframe {
         width: 100%;
         max-width: 400px;
-        height: 620px;
-        transform: scale(0.9);
+        height: 725px;
+        transform: scale(0.95);
         transform-origin: center;
         border-radius: 12px;
     }
@@ -597,7 +589,6 @@ body {
     background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
     color: white;
     text-align: center;
-    padding-bottom: 20px;
 }
 
 .cta-content h2 {
@@ -608,7 +599,6 @@ body {
 
 .cta-content p {
     font-size: 20px;
-    margin-bottom: 40px;
     opacity: 0.9;
 }
 
@@ -756,13 +746,38 @@ body {
 }
 
 @media (max-width: 768px) {
+    .header .container {
+        justify-content: center;
+    }
+
+    .header .logo {
+        align-items: center;
+        text-align: center;
+    }
+
+    .header .logo-text h1 {
+        font-size: 20px;
+    }
+
+    .header .logo-text span {
+        font-size: 12px;
+    }
+
+    .header .btn-whatsapp-header {
+        display: none;
+    }
+
     .hero {
         min-height: auto;
     }
 
     .hero-content {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .hero-cta {
         text-align: center;
     }
 
@@ -778,8 +793,10 @@ body {
         grid-template-columns: 1fr;
     }
 
-    .hero-cta {
-        text-align: center;
+    .hero-image-container {
+        margin-top: 20px;
+        width: 100%;
+        height: 250px;
     }
 
     .products-grid {
@@ -789,6 +806,23 @@ body {
     .product-card.featured {
         transform: scale(1);
     }
+
+    .product-price {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+    }
+
+    .price-card {
+        margin-right: 0;
+    }
+
+    .benefits-carousel-container {
+        -webkit-mask-image: none;
+        mask-image: none;
+    }
+
 
     .gallery-top-row {
         grid-template-columns: 1fr;
@@ -802,6 +836,7 @@ body {
         .video-item-insta iframe {
             transform: scale(1);
             max-width: 360px;
+            height: 600px;
         }
 
     .testimonials-grid {
@@ -823,9 +858,5 @@ body {
 
     .container {
         padding: 0 15px;
-    }
-
-    .benefit-card {
-        flex: 0 0 300px;
     }
 }
