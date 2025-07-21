@@ -173,6 +173,7 @@ body {
 
 .hero-cta {
     text-align: left;
+    margin-top: 20px;
 }
 
 .hero-image-container {
@@ -425,7 +426,6 @@ body {
 
 .benefits-carousel-track {
     display: grid;
-    /* Cria colunas responsivas: se ajusta automaticamente ao tamanho da tela */
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
     justify-content: center;
@@ -437,7 +437,6 @@ body {
     border-radius: 15px;
     transition: all 0.3s ease;
     border: 1px solid #e5e7eb;
-    /* A propriedade flex foi removida pois agora usamos grid */
 }
 
     .benefit-card:hover {
@@ -493,22 +492,24 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 700px; /* Garante espaço vertical */
 }
 
+    /* ATUALIZAÇÃO: Estilo ajustado para corrigir corte e interatividade */
     .video-item-insta iframe {
         width: 100%;
-        max-width: 400px;
-        height: 725px;
-        transform: scale(0.95);
-        transform-origin: center;
+        max-width: 380px; /* Levemente reduzido para evitar cortes laterais */
+        min-height: 710px; /* Altura mínima para o embed carregar corretamente */
         border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        /* Removido transform: scale() para evitar distorção */
     }
 
 .gallery-carousel-container {
     position: relative;
     width: 100%;
     overflow: hidden;
-    border-radius: 15px; /* height is set by JS */
+    border-radius: 15px;
 }
 
 .gallery-carousel-track {
@@ -728,7 +729,6 @@ body {
     }
 
 .footer-bottom {
-    padding-top: 20px;
     text-align: center;
     color: #9ca3af;
     font-size: 14px;
@@ -831,12 +831,12 @@ body {
 
     .video-item-insta {
         margin-bottom: 20px;
+        min-height: 550px; /* Altura ajustada para mobile */
     }
 
         .video-item-insta iframe {
-            transform: scale(1);
-            max-width: 360px;
-            height: 600px;
+            max-width: 320px; /* Largura máxima ajustada para mobile */
+            min-height: 540px;
         }
 
     .testimonials-grid {
