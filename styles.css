@@ -485,7 +485,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
     gap: 30px;
-    align-items: stretch;
+    align-items: center; /* MODIFICADO: Alterado de 'stretch' para evitar que o carrossel estique verticalmente */
 }
 
 .video-item-insta {
@@ -515,18 +515,20 @@ body {
 .gallery-carousel-track {
     display: flex;
     transition: transform 0.5s ease-in-out;
-    height: 100%;
 }
 
 .gallery-item {
     min-width: 100%;
     position: relative;
-    height: 100%;
+    height: 650px; 
+    display: flex; 
+    align-items: center;
+    justify-content: center;
 }
 
     .gallery-item img {
-        width: 100%;
-        height: 100%;
+        width: 100%; 
+        height: 100%; 
         object-fit: cover;
     }
 
